@@ -4,11 +4,17 @@ import { CommonModule } from '@angular/common';
 
 import {HomeComponent} from "./home.component";
 import { VideosComponent } from './videos/videos.component';
+import {NewsComponent} from "./news/news.component";
+import {HeroSectionComponent} from "./hero-section/hero-section.component";
+import { SuggestionNewCarsComponent } from "./suggestion-new-cars/suggestion-new-cars.component";
 
 @NgModule({
   declarations: [
     HomeComponent,
-    VideosComponent
+    VideosComponent,
+    NewsComponent,
+    HeroSectionComponent,
+    SuggestionNewCarsComponent
   ],
   imports: [
     BrowserModule,
