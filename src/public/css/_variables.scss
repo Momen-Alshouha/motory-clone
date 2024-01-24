@@ -1,0 +1,28 @@
+// Screen Sizes
+$breakpoints: (
+  'mobile': (max-width: 767px),
+  'tablet': (min-width: 768px) and (max-width: 991px),
+  'desktop': (min-width: 992px)
+) !default;
+
+// Breakpoints
+$breakpoints-value: (sm: 576px, md: 768px, lg: 992px, xl: 1200px);
+
+// Typography
+$font-sizes: (
+  "12": 12px,
+  "14": 14px,
+  "16": 16px,
+  "18": 18px,
+  "21": 21px,
+  "24": 24px,
+  "28": 28px,
+  "32": 32px,
+  "40": 40px,
+  "48": 48px
+);
+$line-heights: (
+  "150": 1.5,
+  "160": 1.6,
+  "180": 1.8,
+);
