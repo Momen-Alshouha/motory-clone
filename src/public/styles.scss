@@ -1,3 +1,13 @@
-
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import "css";
+
+.object-fit-center{
+  object-fit: cover;
+}
+.object-fit-contain{
+  object-fit: contain;
+}
+.object-position-center{
+  object-position: center;
+}

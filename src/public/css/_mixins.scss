@@ -1,0 +1,493 @@
+@import "variables";
+
+@mixin font-face($family, $file, $path, $style, $weight) {
+  @font-face {
+    font-family: $family;
+    src: url($path + $file + '.ttf');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin rounded {
+  $base-start: 0;
+  $step: 1;
+  $max: 101;
+  @for $i from 1 through calc($max / $step) {
+    $radius: $base-start + ($i - 1) * $step;
+    .rounded-#{$radius} {
+      border-radius: $radius + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .rounded-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $radius: $base-start + ($i - 1) * $step;
+          &-#{$radius} {
+            border-radius: $radius + px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin custom-margins {
+  $base-start: 0;
+  $step: 1;
+  $max: 101;
+  @for $i from 1 through calc($max / $step) {
+    $margin: $base-start + ($i - 1) * $step;
+    .cm-#{$margin} {
+      margin: $margin + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cm-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $margin: $base-start + ($i - 1) * $step;
+          &-#{$margin} {
+            margin: $margin + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $margin: $base-start + ($i - 1) * $step;
+    .cmx-#{$margin} {
+      margin-inline-start: $margin + px !important;
+      margin-inline-end: $margin + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cmx-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $margin: $base-start + ($i - 1) * $step;
+          &-#{$margin} {
+            margin-inline-start: $margin + px !important;
+            margin-inline-end: $margin + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $margin: $base-start + ($i - 1) * $step;
+    .cmy-#{$margin} {
+      margin-block-start: $margin + px !important;
+      margin-block-end: $margin + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cmy-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $margin: $base-start + ($i - 1) * $step;
+          &-#{$margin} {
+            margin-block-start: $margin + px !important;
+            margin-block-end: $margin + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $margin: $base-start + ($i - 1) * $step;
+    .cmr-#{$margin} {
+      margin-inline-start: $margin + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cmr-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $margin: $base-start + ($i - 1) * $step;
+          &-#{$margin} {
+            margin-inline-start: $margin + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $margin: $base-start + ($i - 1) * $step;
+    .cml-#{$margin} {
+      margin-inline-end: $margin + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cml-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $margin: $base-start + ($i - 1) * $step;
+          &-#{$margin} {
+            margin-inline-end: $margin + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $margin: $base-start + ($i - 1) * $step;
+    .cmt-#{$margin} {
+      margin-top: $margin + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cmt-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $margin: $base-start + ($i - 1) * $step;
+          &-#{$margin} {
+            margin-top: $margin + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $margin: $base-start + ($i - 1) * $step;
+    .cmb-#{$margin} {
+      margin-bottom: $margin + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cmb-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $margin: $base-start + ($i - 1) * $step;
+          &-#{$margin} {
+            margin-bottom: $margin + px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin custom-bootstrap-grid-negative-margins {
+  $base-start: 0;
+  $step: 1;
+  $max: 101;
+
+  @for $i from 1 through calc($max / $step) {
+    $margin: $base-start + ($i - 1) * $step;
+    .cgx-#{$margin} {
+      margin-inline: $margin * -1px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cgx-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $margin: $base-start + ($i - 1) * $step;
+          &-#{$margin} {
+            margin-inline: $margin * -1px !important;
+
+            margin-inline-end: $margin * -1px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin custom-paddings {
+  $base-start: 0;
+  $step: 1;
+  $max: 101;
+  @for $i from 1 through calc($max / $step) {
+    $padding: $base-start + ($i - 1) * $step;
+    .cp-#{$padding} {
+      padding: $padding + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cp-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $padding: $base-start + ($i - 1) * $step;
+          &-#{$padding} {
+            padding: $padding + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $padding: $base-start + ($i - 1) * $step;
+    .cpx-#{$padding} {
+      padding-inline-start: $padding + px !important;
+      padding-inline-end: $padding + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cpx-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $padding: $base-start + ($i - 1) * $step;
+          &-#{$padding} {
+            padding-inline-start: $padding + px !important;
+            padding-inline-end: $padding + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $padding: $base-start + ($i - 1) * $step;
+    .cpy-#{$padding} {
+      padding-block-start: $padding + px !important;
+      padding-block-end: $padding + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cpy-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $padding: $base-start + ($i - 1) * $step;
+          &-#{$padding} {
+            padding-block-start: $padding + px !important;
+            padding-block-end: $padding + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $padding: $base-start + ($i - 1) * $step;
+    .cpr-#{$padding} {
+      padding-inline-start: $padding + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cpr-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $padding: $base-start + ($i - 1) * $step;
+          &-#{$padding} {
+            padding-inline-start: $padding + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $padding: $base-start + ($i - 1) * $step;
+    .cpl-#{$padding} {
+      padding-inline-end: $padding + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cpl-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $padding: $base-start + ($i - 1) * $step;
+          &-#{$padding} {
+            padding-inline-end: $padding + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $padding: $base-start + ($i - 1) * $step;
+    .cpt-#{$padding} {
+      padding-top: $padding + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cpt-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $padding: $base-start + ($i - 1) * $step;
+          &-#{$padding} {
+            padding-top: $padding + px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through calc($max / $step) {
+    $padding: $base-start + ($i - 1) * $step;
+    .cpb-#{$padding} {
+      padding-bottom: $padding + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .cpb-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $padding: $base-start + ($i - 1) * $step;
+          &-#{$padding} {
+            padding-bottom: $padding + px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin custom-gaps {
+  $base-start: 0;
+  $step: 1;
+  $max: 101;
+  @for $i from 1 through calc($max / $step) {
+    $gap: $base-start + ($i - 1) * $step;
+    .gap-#{$gap} {
+      gap: $gap + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .gap-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $gap: $base-start + ($i - 1) * $step;
+          &-#{$gap} {
+            gap: $gap + px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin custom-column-gaps {
+  $base-start: 0;
+  $step: 1;
+  $max: 101;
+  @for $i from 1 through calc($max / $step) {
+    $gap: $base-start + ($i - 1) * $step;
+    .col-gap-#{$gap} {
+      column-gap: $gap + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .col-gap-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $gap: $base-start + ($i - 1) * $step;
+          &-#{$gap} {
+            column-gap: $gap + px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin custom-row-gaps {
+  $base-start: 0;
+  $step: 1;
+  $max: 101;
+  @for $i from 1 through calc($max / $step) {
+    $gap: $base-start + ($i - 1) * $step;
+    .row-gap-#{$gap} {
+      row-gap: $gap + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .row-gap-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $gap: $base-start + ($i - 1) * $step;
+          &-#{$gap} {
+            row-gap: $gap + px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin custom-top {
+  $base-start: 0;
+  $step: 1;
+  $max: 101;
+
+  @for $i from 1 through calc($max / $step) {
+    $top: $base-start + ($i - 1) * $step;
+    .top-#{$top} {
+      top: $top + px !important;
+    }
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    .top-#{$bp} {
+      @media (min-width: $size) {
+        @for $i from 1 through calc($max / $step) {
+          $top: $base-start + ($i - 1) * $step;
+          &-#{$top} {
+            row-gap: $top + px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Generate text alignment classes
+@mixin text-alignment {
+  .text-align-start {
+    text-align: start !important;
+  }
+
+  .text-align-end {
+    text-align: end !important;
+  }
+
+  .text-align-reset {
+    text-align: initial !important;
+  }
+
+  @each $bp, $size in $breakpoints-value {
+    @media (min-width: $size) {
+      .text-align-#{$bp}-start {
+        text-align: start !important;
+      }
+
+      .text-align-#{$bp}-end {
+        text-align: end !important;
+      }
+
+      .text-align-#{$bp}-reset {
+        text-align: initial !important;
+      }
+    }
+  }
+}
