@@ -1,1 +1,14 @@
-<p>knowlage-center works!</p>
+<div class="knowledge-center-container" *ngIf="knowledgeCenterData">
+    <div class="knowledgeCenterData text-center">
+        <div class="image-title-subtitle">
+            <img [src]="knowledgeCenterData[0].icon" alt="Knowledge Center Icon" class="img-fluid">
+            <div>
+                <h2>{{ knowledgeCenterData[0].title }}</h2>
+                <p>{{ knowledgeCenterData[0].sub_title }}</p>
+            </div>
+        </div>
+        <a target="_blank" href="{{ knowledgeCenterData[0].button }}" class="knowledge-center-btn btn btn-primary ml-auto">
+           Explore More
+        </a>
+    </div>
+</div>
