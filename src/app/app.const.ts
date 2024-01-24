@@ -1,5 +1,5 @@
 export const APP = {
-    BASE_URL: '',
+    BASE_URL: 'https://stg-pre-live2-jo.motory.com/api/v3',
     API: {
       COMMON: {
         LOG: '/common/log-user-device/',

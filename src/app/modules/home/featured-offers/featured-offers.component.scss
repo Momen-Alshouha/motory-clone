@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch; 
+    margin-top: 20px;
+
+    h6 {
+        margin: 5px;
+    }
+  }
+  
+  .car-offer {
+    flex: 1; 
+    margin: 10px;
+  }
+  
+  .car-offer-inner {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100%; 
+  }
+  
+  .car-offer img {
+    max-width: 100%;
+    max-height: 100%; 
+    border-radius: 10px;
+  }
+  
+  a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+  }
+  

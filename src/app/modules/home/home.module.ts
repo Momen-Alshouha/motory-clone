@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-
 import {HomeComponent} from "./home.component";
 import { VideosComponent } from './videos/videos.component';
 import {NewsComponent} from "./news/news.component";
@@ -12,6 +11,7 @@ import { FeaturedOffersComponent } from './featured-offers/featured-offers.compo
 import { KnowlageCenterComponent } from './knowlage-center/knowlage-center.component';
 import { FeaturedMakesComponent } from './featured-makes/featured-makes.component';
 import { NewsletterComplaintsComponent } from './newsletter-complaints/newsletter-complaints.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -27,7 +27,8 @@ import { NewsletterComplaintsComponent } from './newsletter-complaints/newslette
   ],
   imports: [
     BrowserModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [],
   exports: [HomeComponent, VideosComponent],

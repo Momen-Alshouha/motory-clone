@@ -1,25 +1,32 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { APP } from '../app.const';
+import { catchError ,throwError} from 'rxjs';
+import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
 
-  data!: Observable<any>;
+  private data!: Observable<any>;
 
-  readonly componentsNames = {
+  private readonly componentsNames = {
     CAR_OFFER_LIST: 'carOfferList',
   }
 
   constructor(private _http: HttpClient) {
-    this.data = this._http.get(APP.API.HOME.MAIN).pipe(
-      map((response: any) => {
-        response['data']
-      })
-    )
+    const lang = 'en';
+    console.log('Lang:', lang);
+    const params = new HttpParams().set('lang', lang);
+    const apiUrl = APP.BASE_URL + APP.API.HOME.MAIN;
+    console.log('API URL:', apiUrl);
+  
+    this.data = this._http.get(apiUrl, { params }).pipe(
+      // tap(url => console.log('Request URL:', url)),
+      map((response: any) => response['data'])
+    );
   }
 
   public getHomeData$(): Observable<any> {

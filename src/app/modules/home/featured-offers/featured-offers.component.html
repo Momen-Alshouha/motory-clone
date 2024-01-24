@@ -1,1 +1,13 @@
-<p>featured-offers works!</p>
+<div class="container">
+    <div *ngFor="let carOffer of carOfferList$ | async" class="car-offer">
+      <div class="car-offer-inner">
+        <img [src]="carOffer.image" alt="Car Image">
+        <div class="offer-details">
+          <h6>{{ carOffer.title }}</h6>
+          <span>Valid From: {{ carOffer.offer_begin }} To: {{ carOffer.offer_end }}</span>
+          <a [href]="carOffer.url" target="_blank">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
