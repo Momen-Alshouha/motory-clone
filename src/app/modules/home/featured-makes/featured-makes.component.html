@@ -1,1 +1,32 @@
-<p>featured-makes works!</p>
+<h4>Featured Makes</h4>
+<div class="feature-makes-buttons">
+    <button (click)="toggleSection('specs_prices')" [class.active]="selectedSection === 'specs_prices'">Specs and Prices</button>
+    <button (click)="toggleSection('shop_offer')" [class.active]="selectedSection === 'shop_offer'">Offers</button>
+    <button (click)="toggleSection('financing')" [class.active]="selectedSection === 'financing'">Financing</button>
+</div>
+<div class="feature-make-parent-container">
+<div class="cont-feature-makes" *ngIf="selectedSection === 'specs_prices'">
+  <div class="feature-make-container-logo-a" *ngFor="let item of specPricesList">
+    <img [src]="item.img" alt="{{ item.name }}">
+    <a [href]="item.url" target="_blank">{{ item.name }}</a>
+  </div>
+</div>
+
+<div class="cont-feature-makes feature-make-container" *ngIf="selectedSection === 'shop_offer'">
+  <div *ngIf="shopOfferDisplay">
+    <img [src]="shopOfferImage" alt="{{ shopOfferTitle }}">
+    <a [href]="shopOfferUrl" target="_blank">{{ shopOfferTitle }}</a>
+  </div>
+  <div class="feature-make-container-logo-a" *ngFor="let offer of shopOfferList">
+    <img [src]="offer.img" alt="{{ offer.name }}">
+    <a [href]="offer.url" target="_blank">{{ offer.name }}</a>
+  </div>
+</div>
+
+<div class="cont-feature-makes" *ngIf="selectedSection === 'financing'">
+  <div class="feature-make-container-logo-a" *ngFor="let item of financingList">
+    <img [src]="item.img" alt="{{ item.name }}">
+    <a [href]="item.url" target="_blank">{{ item.name }}</a>
+  </div>
+</div>
+</div>

@@ -14,22 +14,11 @@ export class FeaturedOffersComponent implements OnInit {
   constructor(private homeService: HomeService) {}
 
   ngOnInit() {
-    this.getHomeData();
     this.getCarOfferList();
-  }
-
-  getHomeData() {
-    this.homeData$ = this.homeService.getHomeData$();
   }
 
   getCarOfferList() {
     this.carOfferList$ = this.homeService.carOfferListData$;
-    
-    // this.carOfferList$.pipe(
-    //   tap((value) => {
-    //     console.log(value);
-    //   })
-    // ).subscribe();
   }
 
 }
