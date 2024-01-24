@@ -17,7 +17,7 @@ export class FeaturedMakesService {
     const apiUrl = APP.BASE_URL + APP.API.HOME.MAIN;
 
     // Set the headers with x-device-type
-    const headers = new HttpHeaders().set('x-device-type', 'web');
+    const headers = new HttpHeaders().set('x-device-type', 'web').set('lang','en');
 
     this.data$ = this._http.get(apiUrl, { headers: headers }).pipe(
       map((response: any) => response['data'])
