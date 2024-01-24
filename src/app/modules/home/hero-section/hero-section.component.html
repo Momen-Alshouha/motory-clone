@@ -1,1 +1,43 @@
-<p>hero-section works!</p>
+<div class="hero-section position-relative">
+  <div class="banner">
+    <img src="https://ksa.motory.com/images/homepage/home-main-bg.webp" class="object-fit-cover object-position-center h-100 position-absolute w-100 top-0 left-0">
+    <div class="hero-info z-3 position-relative mx-auto">
+      <div class="container">
+        <h1 class="hero-section-title text-white text-center">Your Gateway to the Automotive World in Saudi Arabia</h1>
+        <p class="hero-section-sub-title text-white text-center">One place for buying, selling & browsing the latest offers & auto news</p>
+        <div class="search-box mx-auto mt-5">
+          <div class="input-group position-relative">
+            <input type="text" class="form-control custom-search-box" placeholder="Search in Motory">
+            <button class="btn btn-primary btn-search rounded-circle position-absolute end-0 me-2 my-1"><img src="{{environment.ASSETS}}/icons/shared/search-icon.svg"></button>
+          </div>
+        </div>
+        <div class="most-searched-section mt-4 text-white d-flex justify-content-center align-items-center">
+          <span>Most Searched Brands</span>
+          <div class="badges d-flex">
+            <span class="badge rounded-pill custom-badge-search mx-1 d-inline-block">Exeed</span>
+            <span class="badge rounded-pill custom-badge-search mx-1 d-inline-block">Chery</span>
+            <span class="badge rounded-pill custom-badge-search mx-1 d-inline-block">Bestune</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="quick-access-section">
+  <div class="container">
+    <div class="quick-access-links bg-white">
+      <div class="row">
+        <div class="col-md-3 d-flex mt-1 mb-1 quick-access-item p-2" *ngFor="let number of [0,1,2,3,4,5,6,7]">
+          <div class="quick-access-img">
+            <img src="https://ksa.motory.com/images/quick-action/finance-cars.svg">
+          </div>
+          <div class="quick-access-title ms-2">
+            <p class="title mb-0 fw-bold">Car Financing</p>
+            <p class="mobile-title d-block d-md-none mb-0">Finance</p>
+            <p class="sub-title mb-0">Easy financing solutions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
