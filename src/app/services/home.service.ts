@@ -18,10 +18,10 @@ export class HomeService {
 
   constructor(private _http: HttpClient) {
     const lang = 'en';
-    console.log('Lang:', lang);
+    //console.log('Lang:', lang);
     const params = new HttpParams().set('lang', lang);
     const apiUrl = APP.BASE_URL + APP.API.HOME.MAIN;
-    console.log('API URL:', apiUrl);
+    //console.log('API URL:', apiUrl);
   
     this.data = this._http.get(apiUrl, { params }).pipe(
       // tap(url => console.log('Request URL:', url)),

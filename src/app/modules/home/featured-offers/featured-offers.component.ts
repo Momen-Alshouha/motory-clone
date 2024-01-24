@@ -25,11 +25,11 @@ export class FeaturedOffersComponent implements OnInit {
   getCarOfferList() {
     this.carOfferList$ = this.homeService.carOfferListData$;
     
-    this.carOfferList$.pipe(
-      tap((value) => {
-        console.log(value);
-      })
-    ).subscribe();
+    // this.carOfferList$.pipe(
+    //   tap((value) => {
+    //     console.log(value);
+    //   })
+    // ).subscribe();
   }
 
 }

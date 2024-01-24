@@ -12,6 +12,7 @@ import { KnowlageCenterComponent } from './knowlage-center/knowlage-center.compo
 import { FeaturedMakesComponent } from './featured-makes/featured-makes.component';
 import { NewsletterComplaintsComponent } from './newsletter-complaints/newsletter-complaints.component';
 import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     HomeComponent,
