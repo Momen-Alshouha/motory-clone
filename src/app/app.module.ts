@@ -22,6 +22,7 @@ register();
     AppRoutingModule,
     HomeModule,
     LayoutModule,
+    AngularSvgIconModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
