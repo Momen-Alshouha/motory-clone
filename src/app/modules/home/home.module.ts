@@ -28,7 +28,6 @@ import {SvgIconComponent} from "angular-svg-icon";
     KnowlageCenterComponent,
     FeaturedMakesComponent,
     ContactInquiriesComponent,
-    
   ],
   imports: [
     BrowserModule,

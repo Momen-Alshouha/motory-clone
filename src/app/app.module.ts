@@ -18,6 +18,7 @@ import {AngularSvgIconModule} from "angular-svg-icon";
     AppRoutingModule,
     HomeModule,
     LayoutModule,
+    AngularSvgIconModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
