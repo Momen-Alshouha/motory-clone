@@ -12,7 +12,7 @@ import { KnowlageCenterComponent } from './knowlage-center/knowlage-center.compo
 import { FeaturedMakesComponent } from './featured-makes/featured-makes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactInquiriesComponent } from './newsletter-complaints/newsletter-complaints.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SharedModule} from "../../shared/shared.module";
 
 @NgModule({
@@ -27,13 +27,13 @@ import {SharedModule} from "../../shared/shared.module";
     KnowlageCenterComponent,
     FeaturedMakesComponent,
     ContactInquiriesComponent,
-    
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     SharedModule,
   ],
   providers: [],
