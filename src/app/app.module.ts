@@ -15,14 +15,13 @@ register();
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HomeModule,
     LayoutModule,
-    AngularSvgIconModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
