@@ -1,1 +1,66 @@
-<p>newsletter-complaints works!</p>
+<div class="container contact-inquiries subscribe" data-test="section_compliant">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="d-flex contact-inquiries-inner">
+                <div class="contact-inquiries-info">
+                    <h2 class="title font-size-18">Complaints & Inquiries</h2>
+                </div>
+
+                <div class="contact-inquiries-desc">
+                    We receive inquiries from Sunday to Thursday from 8 AM to 5 PM.
+                </div>
+
+                <div class="contact-inquiries-whatsapp">
+                    <a target="_blank" data-test="component_compliant_whatsapp"
+                        class="gap-10 justify-content-center align-items-center" href="{{ getWhatsAppLink() }}">
+                        <img class="image w-auto h-auto" [src]="getWhatsAppIcon()" alt="WhatsApp Icon">
+                        Share your thoughts with us
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6" data-test="section_newsletter">
+            <div class="subscribe-description">
+                <div class="subscribe-description-text-wrapper">
+                    <div class="subscribe-description-title block-title font-size-18">
+                        Subscribe to our Weekly Newsletter
+                    </div>
+                    <div class="subscribe-description-text font-size-14">
+                        Subscribe now to receive our latest offers, updates, & news.
+                    </div>
+
+                    <div *ngIf="!requested; else news_latter_message">
+                        <form [formGroup]="newsletterForm" (ngSubmit)="subscribeNewsSubmit()">
+                          <div class="row">
+                            <div class="col-12 col-md-9 cpb-12 cpb-lg-0">
+                              <input class="simple-input rounded-8" type="email" placeholder="Enter your e-mail" formControlName="email">
+                      
+                              <div class="newsletter-mes" *ngIf="newsletterForm.get('email')?.hasError('email') && newsletterForm.get('email')?.touched">
+                                Invalid email address.
+                              </div>
+                      
+                              <div class="newsletter-mes" *ngIf="newsletterForm.get('email')?.hasError('required') && newsletterForm.get('email')?.touched">
+                                Email is required.
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-3">
+                              <button type="submit" class="btn btn-primary font-size-14 cpx-24 cpt-11 cpb-12 fw-bold align-self-start w-100">
+                                Subscribe
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+
+                    <ng-template #news_latter_message>
+                        <div class="subscribe-form-info">
+                            {{ msgSubmitResponse }}
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

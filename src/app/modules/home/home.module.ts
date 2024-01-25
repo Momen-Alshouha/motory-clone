@@ -10,8 +10,10 @@ import { AboutComponent } from './about/about.component';
 import { FeaturedOffersComponent } from './featured-offers/featured-offers.component';
 import { KnowlageCenterComponent } from './knowlage-center/knowlage-center.component';
 import { FeaturedMakesComponent } from './featured-makes/featured-makes.component';
-import { NewsletterComplaintsComponent } from './newsletter-complaints/newsletter-complaints.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactInquiriesComponent } from './newsletter-complaints/newsletter-complaints.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {SharedModule} from "../../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -24,12 +26,15 @@ import { HttpClientModule } from '@angular/common/http';
     FeaturedOffersComponent,
     KnowlageCenterComponent,
     FeaturedMakesComponent,
-    NewsletterComplaintsComponent,
+    ContactInquiriesComponent,
+    
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [],
   exports: [HomeComponent, VideosComponent],

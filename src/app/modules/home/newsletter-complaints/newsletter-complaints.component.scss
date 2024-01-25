@@ -1,0 +1,120 @@
+.contact-inquiries {
+    margin-top: 50px;
+    padding: 0 16px 48px;
+    
+    .contact-inquiries-desc {
+        margin-bottom: 15px;
+    }
+
+    .contact-inquiries-inner, .section_newsletter {
+        padding: 30px;
+        height: 210px;
+    }
+    &-inner {
+      padding: 16px;
+      border-radius: 8px;
+      flex-flow: wrap;
+      height: 100%;
+      background-color: #F6F7F8;
+    }   
+  
+    &-info, &-desc, .title, .text {
+      width: 100%;
+    }
+
+    .text {
+      padding-bottom: 16px;
+    }
+  
+    &-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 42px;
+      border: 1px solid #12AA66;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      background-color: white;
+      a {
+        display: flex;
+        font-weight: bold;
+        color: #12AA66;
+        gap: 5px;
+        text-decoration: none;
+      }
+    }
+  
+    .fa-phone {
+      font-size: 16px;
+    }
+  }
+  
+  .subscribe {
+    &-description {
+      padding: 24px;
+      border-radius: 8px;
+      height: 100%;
+      background-color: #F6F7F8;
+  
+      &-title {
+        font-size: 21px;
+        font-weight: bold;
+        padding-bottom: 8px;
+        color: #171D35;
+      }
+  
+      &-text {
+        width: 100%;
+        font-size: 16px;
+        padding-bottom: 16px;
+        color: #171D35;
+      }
+
+      &-success {
+        padding: 0 11px;
+  
+        @media (max-width: 767px) {
+          padding: 12px;
+        }
+      }
+    }
+  
+    &-action {
+      height: 44px;
+      max-width: 103px;
+  
+
+    }
+  
+    .has-error .help-block {
+      margin-top: 8px;
+    }
+  }
+
+
+.simple-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+  
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+  
+
+  .newsletter-mes {
+    margin-top: 5px;
+    color: red;
+  }

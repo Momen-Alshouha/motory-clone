@@ -8,19 +8,20 @@ import { LayoutComponent } from './shared/modules/layout/layout.component';
 import {LayoutModule} from "./shared/modules/layout/layout.module";
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
+import {AngularSvgIconModule} from "angular-svg-icon";
 // register Swiper custom elements
 register();
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    LayoutModule
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
