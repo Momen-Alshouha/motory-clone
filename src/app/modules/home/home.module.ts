@@ -13,6 +13,8 @@ import { FeaturedMakesComponent } from './featured-makes/featured-makes.componen
 import { HttpClientModule } from '@angular/common/http';
 import { ContactInquiriesComponent } from './newsletter-complaints/newsletter-complaints.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {SharedModule} from "../../shared/shared.module";
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -31,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [],
   exports: [HomeComponent, VideosComponent],

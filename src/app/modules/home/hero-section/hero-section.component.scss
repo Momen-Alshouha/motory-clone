@@ -1,0 +1,61 @@
+.hero-info{
+  max-width: 810px;
+  padding-bottom: 181px;
+  .hero-section-title{
+    padding-top: 120px;
+    padding-bottom: 32px;
+  }
+  .search-box{
+    width: 690px;
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,.15);
+    border-radius: 33px;
+    .custom-search-box{
+      height: 60px !important;
+      border-radius: 33px;
+      color: #000;
+      padding-right: 10px;
+      &:focus {
+        color: #000;
+        background-color: #fff;
+        border-color: #555555;
+        outline: 0;
+        box-shadow: unset;
+      }
+    }
+    .btn-search{
+      z-index: 99;
+      height: 50px !important;
+      width: 50px !important;
+      padding: unset;
+    }
+  }
+  .custom-badge-search{
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: normal !important;
+    font-size: 16px !important;
+    color: rgb(255, 255, 255) !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+}
+
+.quick-access-links{
+  margin-top: -100px;
+  z-index: 99;
+  position: relative;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.04);
+  .quick-access-title{
+    .title{
+      font-size: 16px;
+    }
+    .title-mobile{
+      font-size: 12px;
+    }
+    .sub-title{
+      font-size:14px;
+      color: #596688;
+    }
+  }
+}
