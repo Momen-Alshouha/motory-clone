@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import {HomeComponent} from "./home.component";
@@ -13,6 +13,7 @@ import { FeaturedMakesComponent } from './featured-makes/featured-makes.componen
 import { NewsletterComplaintsComponent } from './newsletter-complaints/newsletter-complaints.component';
 import { HttpClientModule } from '@angular/common/http';
 import {SharedModule} from "../../shared/shared.module";
+import {SvgIconComponent} from "angular-svg-icon";
 
 @NgModule({
   declarations: [
@@ -32,8 +33,10 @@ import {SharedModule} from "../../shared/shared.module";
     CommonModule,
     HttpClientModule,
     SharedModule,
+    SvgIconComponent,
   ],
   providers: [],
   exports: [HomeComponent, VideosComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule { }
