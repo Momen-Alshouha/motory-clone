@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FooterService } from '../../../../services/footer.service';
-import { Observable } from 'rxjs';
+import { Observable,Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-footer',
@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+
+  private subscriptions! : Subscription[];
 
   readonly footerComponents = {
     BROWSE_SITE: 'browseSite',
@@ -33,6 +35,15 @@ export class FooterComponent implements OnInit {
     this.socialMediaComponent$ = this.footerService.socialMediaComponentData$;
     this.footerSeoComponent$ = this.footerService.footerSeoComponentData$;
     this.copyRightComponent$ = this.footerService.copyRightComponentData$;
+  
+    this.subscriptions.push(
+      this.footerData$.subscribe(),
+      this.browseSiteComponent$.subscribe(),
+      this.keepOnTouchComponent$.subscribe(),
+      this.socialMediaComponent$.subscribe(),
+      this.footerSeoComponent$.subscribe(),
+      this.copyRightComponent$.subscribe()
+    );
   }
 
 
@@ -40,6 +51,10 @@ export class FooterComponent implements OnInit {
 
   toggleDescription(): void {
     this.showFullDescription = !this.showFullDescription;
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
   
 }
