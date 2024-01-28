@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-videos',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './videos.component.scss'
 })
 export class VideosComponent {
+  @Input() videoComponent!: { [key: string]: any } | null;
 
+
+  get videoComponentData() {
+    return this.videoComponent?.['data'];
+  }
 }

@@ -1,6 +1,6 @@
-import { HttpClient,HttpParams } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import {Observable, map, shareReplay} from 'rxjs';
 import { APP } from '../app.const';
 import { catchError ,throwError} from 'rxjs';
 import { tap } from 'rxjs';
@@ -10,22 +10,22 @@ import { tap } from 'rxjs';
 })
 export class HomeService {
 
-  private data!: Observable<any>;
-
+  data!: Observable<any>;
   private readonly componentsNames = {
     CAR_OFFER_LIST: 'carOfferList',
+    AUTO_NEWS: 'autoNews',
+    VIDEO: 'videosList',
   }
 
   constructor(private _http: HttpClient) {
-    const lang = 'en';
-    //console.log('Lang:', lang);
-    const params = new HttpParams().set('lang', lang);
     const apiUrl = APP.BASE_URL + APP.API.HOME.MAIN;
-    //console.log('API URL:', apiUrl);
-  
-    this.data = this._http.get(apiUrl, { params }).pipe(
-      // tap(url => console.log('Request URL:', url)),
-      map((response: any) => response['data'])
+
+    // Set the headers with x-device-type
+    const headers = new HttpHeaders().set('x-device-type', 'web').set('lang','en');
+
+    this.data = this._http.get(apiUrl, { headers: headers }).pipe(
+      shareReplay(1),
+      map((response: any) => response['data']),
     );
   }
 
@@ -49,5 +49,19 @@ export class HomeService {
     );
   }
 
+  public get autoNewsComponent$(): Observable<any> {
+    return this._getComponentData(this.componentsNames.AUTO_NEWS);
+  }
+  public get autoNewsData$(): Observable<any> {
+    return this.autoNewsComponent$.pipe(map((value) => value['data']));
+  }
 
+
+  public get videoComponent$(): Observable<any> {
+    return this._getComponentData(this.componentsNames.VIDEO);
+  }
+
+  public get videoData$(): Observable<any[]> {
+    return this.videoComponent$.pipe(map((value) => value['data']));
+  }
 }

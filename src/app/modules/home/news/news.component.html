@@ -9,11 +9,11 @@
       <div class="item-news overflow-hidden position-relative">
         <div class="news-img">
           <picture>
-            <img class="d-block h-100 w-100 object-fit-cover object-position-center" alt="" src="https://s3.eu-central-1.amazonaws.com/v3-news.motory.com/news/1000x503/l-1706010504.3446-65afa78854235.webp">
+            <img class="d-block h-100 w-100 object-fit-cover object-position-center" alt="{{ mainNews['title'] }}" src="{{mainNews['image']}}">
           </picture>
         </div>
         <div class="w-100 overlay d-flex align-items-end news-title position-absolute top-0 bottom-0 right-0 h-100 text-white">
-          <p class="fs-4 px-3">Aljabr Trading Company organizes driving tests using Grand Avenue car</p>
+          <p class="font-size-18 px-3">{{ mainNews['title'] }}</p>
         </div>
       </div>
     </div>
@@ -22,72 +22,28 @@
         <hr/>
       <div class="trending-section">
 
-        <div class="trending-item d-flex mt-3">
+        <div class="trending-item d-flex mt-2" *ngFor="let news of mostReadNews">
           <div class="trending-img col-md-5 rounded-3 overflow-hidden">
             <picture>
-              <img class="d-block w-100 object-fit-cover object-position-center" src="https://s3.eu-central-1.amazonaws.com/v3-news.motory.com/news/500x252/l-1676988144.5826-63f4cef08e3d3.webp" alt="Petrol Price in Saudi Arabia - January 2024">
+              <img class="d-block w-100 object-fit-cover object-position-center" src="{{news['image']}}" alt="{{ news['title'] }}">
             </picture>
           </div>
-          <div class="trending-title ps-2 fw-bold">
-            <p>Petrol Price in Saudi Arabia - January 2024</p>
-          </div>
-        </div>
-        <div class="trending-item d-flex mt-3">
-          <div class="trending-img col-md-5 rounded-3 overflow-hidden">
-            <picture>
-              <img class="d-block w-100 object-fit-cover object-position-center" src="https://s3.eu-central-1.amazonaws.com/v3-news.motory.com/news/500x252/l-1676988144.5826-63f4cef08e3d3.webp" alt="Petrol Price in Saudi Arabia - January 2024">
-            </picture>
-          </div>
-          <div class="trending-title ps-2 fw-bold">
-            <p>Petrol Price in Saudi Arabia - January 2024</p>
-          </div>
-        </div>
-        <div class="trending-item d-flex mt-3">
-          <div class="trending-img col-md-5 rounded-3 overflow-hidden">
-            <picture>
-              <img class="d-block w-100 object-fit-cover object-position-center" src="https://s3.eu-central-1.amazonaws.com/v3-news.motory.com/news/500x252/l-1676988144.5826-63f4cef08e3d3.webp" alt="Petrol Price in Saudi Arabia - January 2024">
-            </picture>
-          </div>
-          <div class="trending-title ps-2 fw-bold">
-            <p>Petrol Price in Saudi Arabia - January 2024</p>
+          <div class="trending-title ps-2 fw-bold font-size-14">
+            <p>{{ news['title'] }}</p>
           </div>
         </div>
 
       </div>
     </div>
-    <div class="col-md-4 mb-3">
+    <div class="col-md-4 mb-3" *ngFor="let news of listNews">
       <div class="item-news overflow-hidden position-relative">
         <div class="news-img h-200px">
           <picture>
-            <img class="d-block h-100 w-100 object-fit-cover object-position-center" alt="" src="https://s3.eu-central-1.amazonaws.com/v3-news.motory.com/news/1000x503/l-1706010504.3446-65afa78854235.webp">
+            <img class="d-block h-100 w-100 object-fit-cover object-position-center" alt="{{ news['title'] }}" src="{{ news['image'] }}">
           </picture>
         </div>
         <div class="w-100 overlay d-flex align-items-end news-title position-absolute top-0 bottom-0 right-0 h-100 text-white">
-          <p class="fs-5 px-3 mb-1">Aljabr Trading Company organizes driving tests using Grand Avenue car</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="item-news overflow-hidden position-relative">
-        <div class="news-img h-200px">
-          <picture>
-            <img class="d-block h-100 w-100 object-fit-cover object-position-center" alt="" src="https://s3.eu-central-1.amazonaws.com/v3-news.motory.com/news/1000x503/l-1706010504.3446-65afa78854235.webp">
-          </picture>
-        </div>
-        <div class="w-100 overlay d-flex align-items-end news-title position-absolute top-0 bottom-0 right-0 h-100 text-white">
-          <p class="fs-5 px-3 mb-1">Aljabr Trading Company organizes driving tests using Grand Avenue car</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="item-news overflow-hidden position-relative">
-        <div class="news-img h-200px">
-          <picture>
-            <img class="d-block h-100 w-100 object-fit-cover object-position-center" alt="" src="https://s3.eu-central-1.amazonaws.com/v3-news.motory.com/news/1000x503/l-1706010504.3446-65afa78854235.webp">
-          </picture>
-        </div>
-        <div class="w-100 overlay d-flex align-items-end news-title position-absolute top-0 bottom-0 right-0 h-100 text-white">
-          <p class="fs-5 px-3 mb-1">Aljabr Trading Company organizes driving tests using Grand Avenue car</p>
+          <p class="font-size-14 px-3 mb-2">{{ news['title'] }}</p>
         </div>
       </div>
     </div>
