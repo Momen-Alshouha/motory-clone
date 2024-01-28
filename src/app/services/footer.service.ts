@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, Observable, repeat, shareReplay } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { map, Observable, repeat, shareReplay, tap } from 'rxjs';
 import { APP } from '../app.const';
-import { withCache } from '@ngneat/cashew';
+import { catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -23,11 +23,12 @@ export class FooterService {
   };
 
   constructor(private _http: HttpClient) {
-
-    this.data = this._http.get(APP.API.HOME.FOOTER).pipe(
+    const headers = new HttpHeaders().set('lang', 'en');
+  
+    const apiUrl = APP.BASE_URL + APP.API.HOME.FOOTER;
+    this.data = this._http.get(apiUrl, { headers }).pipe(
       map((response: any) => response['data'])
-    );    
-
+    );
   }
 
   private _getComponentData(dataSrc$: Observable<any>, componentName: string) {
@@ -44,10 +45,7 @@ export class FooterService {
   }
 
   public get footerMenuData$(): Observable<any> {
-    return this._getComponentData(
-      this.footerData$,
-      this.componentNames.FOOTER_MENU.name,
-    );
+    return this._getComponentData(this.footerData$,this.componentNames.FOOTER_MENU.name);
   }
 
   private get _footerMenuList$() {

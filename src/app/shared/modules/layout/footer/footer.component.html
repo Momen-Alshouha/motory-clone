@@ -1,1 +1,72 @@
-<p>footer works!</p>
+<div class="footer container-fluid">
+    <div class="container">
+        <div *ngIf="(footerData$ | async) as footerData">
+
+            <div class="footer container-fluid">
+                <div class="container">
+                    <div *ngIf="(footerData$ | async) as footerData">
+
+                        <div class="row row1">
+                            <div class="col-md-4" *ngIf="(footerSeoComponent$ | async) as footerSeo">
+                                <h3>{{ footerSeo.title }}</h3>
+                                <p *ngIf="!showFullDescription">
+                                    {{ footerSeo.description | slice:0:250 }}
+                                    <span *ngIf="footerSeo.description.length > 250">...</span>
+                                    <button class="btn btn-link" (click)="showFullDescription = true">Read More</button>
+                                  </p>
+                                  <p *ngIf="showFullDescription">{{ footerSeo.description }}</p>
+                            </div>
+
+                            <div class="col-md-4" *ngIf="(browseSiteComponent$ | async) as browseSite">
+                                <h3>{{ browseSite.title }}</h3>
+                                <ul class="ul-list-style-none">
+                                    <li *ngFor="let item of browseSite.list">
+                                        <a [href]="item.link">{{ item.title }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-4" *ngIf="(keepOnTouchComponent$ | async) as keepOnTouch">
+                                <h3>{{ keepOnTouch.title }}</h3>
+                                <ul class="ul-list-style-none">
+                                    <li *ngFor="let item of keepOnTouch.list">
+                                        <a [href]="item.link">{{ item.title }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row row2">
+                            <div *ngIf="(socialMediaComponent$ | async) as socialMedia">
+                                <h3>{{ socialMedia.title }}</h3>
+                                <ul class="socialMedia-list">
+                                    <li *ngFor="let item of socialMedia.list">
+                                        <a [href]="item.link">
+                                            <img class="socialMedia-icon" [src]="item.logo" alt="{{ item.title }} Logo"
+                                                width="30" height="30">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row copyRight">
+                            <div *ngIf="(copyRightComponent$ | async) as copyRight" class="copy-right-container">
+                                <div class="col-md-5">
+                                    <h6>{{ copyRight.title }}</h6>
+                                </div>
+                                <div class="col-md-5">
+                                    <ul class="list-unstyled">
+                                        <li *ngFor="let item of copyRight.list">
+                                            <a [href]="item.link">{{ item.title }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
