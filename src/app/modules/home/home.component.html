@@ -1,12 +1,25 @@
 <app-hero-section></app-hero-section>
-<div class="container-xxl motory-container">
-  <app-about></app-about>
-  <app-featured-offers></app-featured-offers>
-  <app-knowlage-center></app-knowlage-center>
-  <app-featured-makes></app-featured-makes>
-  <app-suggestion-new-cars></app-suggestion-new-cars>
-  <app-news></app-news>
-  <app-videos></app-videos>
-  <app-newsletter-complaints></app-newsletter-complaints>
-</div>
-
+  <div class="container-xxl motory-container">
+    <app-about></app-about>
+  </div>
+  <div class="container-xxl motory-container">
+    <app-featured-offers></app-featured-offers>
+  </div>
+  <div class="container-xxl motory-container">
+    <app-knowlage-center></app-knowlage-center>
+  </div>
+  <div class="container-xxl motory-container">
+    <app-featured-makes></app-featured-makes>
+  </div>
+  <div class="container-xxl motory-container">
+    <app-suggestion-new-cars></app-suggestion-new-cars>
+  </div>
+  <div class="container-xxl motory-container" *ngIf="(autoNewsComponent$ | async) as data">
+    <app-news [autoNewsComponent]="data"></app-news>
+  </div>
+  <div class="container-xxl motory-container" *ngIf="(videoComponent$ | async) as data">
+    <app-videos [videoComponent]="data"></app-videos>
+  </div>
+  <div class="container-xxl motory-container">
+    <app-newsletter-complaints></app-newsletter-complaints>
+  </div>
