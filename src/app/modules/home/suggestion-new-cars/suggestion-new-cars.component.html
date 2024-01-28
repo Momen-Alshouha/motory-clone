@@ -17,22 +17,19 @@
         spaceBetween: 40
       }
     }" navigation-next-el=".swiper-button-next" navigation-prev-el=".swiper-button-prev">
-    <swiper-slide *ngFor="let number of [0,1,2,3,4,5,6,7]">
+    <swiper-slide *ngFor="let suggestedVehicleListItem of suggestedVehiclesData">
       <div class="">
-        <a class="suggested-cars-item position-relative w-100 h-100 d-flex flex-column" href="https://ksa.motory.com/en/new-cars/chery/tiggo-8-pro/2024/">
+        <a class="suggested-cars-item position-relative w-100 h-100 d-flex flex-column" href="#">
           <div class="suggested-cars-item-image position-relative">
             <picture>
-              <source srcset="https://s3.eu-central-1.amazonaws.com/v3-ncg.motory.com/vehicle-new/575x431/l-1676796485.845-63f1e245ce4c6.webp" media="(max-width:575px)">
-              <source srcset="https://s3.eu-central-1.amazonaws.com/v3-ncg.motory.com/vehicle-new/800x600/l-1676796485.845-63f1e245ce4c6.webp" media="(max-width:767px)">
-              <source srcset="https://s3.eu-central-1.amazonaws.com/v3-ncg.motory.com/vehicle-new/1000x750/l-1676796485.845-63f1e245ce4c6.webp" media="(max-width:991px)">
-              <img class="w-100 h-auto suggested-thumb-img" src="https://s3.eu-central-1.amazonaws.com/v3-ncg.motory.com/vehicle-new/320x240/l-1676796485.845-63f1e245ce4c6.webp">
+              <img class="w-100 h-auto suggested-thumb-img" src="{{suggestedVehicleListItem.image}}">
             </picture>
           </div>
           <div class="suggested-bottom text-left h-100 d-flex flex-column">
-            <img src="https://s3.eu-central-1.amazonaws.com/v3-common.motory.com/taxonomy/139x139/l-1678610317.8179-640d8f8dc7acf.webp" alt="Chery" class="brand-circle-icon">
+            <img src="{{ suggestedVehicleListItem.icon }}" alt="{{suggestedVehicleListItem.make}}" class="brand-circle-icon">
             <div class="suggested-cars-item-title">
               <div class="suggested-cars-item-title-truncate font-size-16 font-size-md-18 fw-bold clamp clamp-2">
-                Chery Tiggo 8 Pro 2024
+                {{ suggestedVehicleListItem.make }} {{ suggestedVehicleListItem.model }} {{ suggestedVehicleListItem.year }}
               </div>
             </div>
 
@@ -41,17 +38,17 @@
                 <div class="price-inner">
                   <div class="price-label">Price Starts at:</div>
                   <div class="price-num font-size-sm-18 fw-bold">
-                    90,800<span class="font-size-14">SR</span>
+                    {{ suggestedVehicleListItem.min_price }}<span class="font-size-14">{{ suggestedVehicleListItem.currency }}</span>
                   </div>
                 </div>
               </div>
               <div class="col-6 monthly cpl-0">
                 <div class="monthly-inner">
                   <div class="monthly-label font-size-12">
-                    Financing:
+                    {{ suggestedVehicleListItem.finance_label }}:
                   </div>
                   <div class="monthly-num font-size-16">
-                    Available
+                    {{ suggestedVehicleListItem.finance_value }}
                   </div>
                 </div>
               </div>

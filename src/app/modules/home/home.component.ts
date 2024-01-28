@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   public autoNewsComponent$!: Observable<any>;
   public videoComponent$!: Observable<any>;
   public videoData$!: Observable<any>;
+  public suggestedVehicleList$!: Observable<any>;
+  public suggestedVehicleListData$!: Observable<any>;
 
   constructor(
     private _homeApiService: HomeService,
@@ -24,5 +26,8 @@ export class HomeComponent implements OnInit {
     this.autoNewsData$ = this._homeApiService.autoNewsData$;
     this.videoComponent$ = this._homeApiService.videoComponent$;
     this.videoData$ = this._homeApiService.videoData$;
+    this.suggestedVehicleList$ = this._homeApiService.suggestedVehicleListComponent$;
+    this.suggestedVehicleListData$ = this._homeApiService.suggestedVehicleListData$;
+
   }
 }

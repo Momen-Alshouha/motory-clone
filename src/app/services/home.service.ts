@@ -15,6 +15,7 @@ export class HomeService {
     CAR_OFFER_LIST: 'carOfferList',
     AUTO_NEWS: 'autoNews',
     VIDEO: 'videosList',
+    SUGGESTED_VEHICLES_LIST: 'suggestedVehiclesList',
   }
 
   constructor(private _http: HttpClient) {
@@ -63,5 +64,15 @@ export class HomeService {
 
   public get videoData$(): Observable<any[]> {
     return this.videoComponent$.pipe(map((value) => value['data']));
+  }
+
+  public get suggestedVehicleListComponent$(): Observable<any> {
+    return this._getComponentData(this.componentsNames.SUGGESTED_VEHICLES_LIST);
+  }
+
+  public get suggestedVehicleListData$(): Observable<any> {
+    return this.suggestedVehicleListComponent$.pipe(
+      map((value) => value['data']),
+    );
   }
 }
