@@ -1,4 +1,7 @@
-<app-hero-section></app-hero-section>
+
+  <div *ngIf="(quickAccessData$ | async) as data" >
+    <app-hero-section [quickAccessComponent]="data"></app-hero-section>
+  </div>
   <div class="container-xxl motory-container">
     <app-about></app-about>
   </div>

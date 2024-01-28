@@ -16,6 +16,7 @@ export class HomeService {
     AUTO_NEWS: 'autoNews',
     VIDEO: 'videosList',
     SUGGESTED_VEHICLES_LIST: 'suggestedVehiclesList',
+    HOME_PAGE_MENU: 'homePageMenu',
   }
 
   constructor(private _http: HttpClient) {
@@ -74,5 +75,9 @@ export class HomeService {
     return this.suggestedVehicleListComponent$.pipe(
       map((value) => value['data']),
     );
+  }
+
+  public get quickAccessComponent$(): Observable<any> {
+    return this._getComponentData(this.componentsNames.HOME_PAGE_MENU);
   }
 }

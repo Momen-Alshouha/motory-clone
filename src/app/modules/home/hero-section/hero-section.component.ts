@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-hero-section',
@@ -7,5 +7,9 @@ import { environment } from '../../../environments/environment';
 })
 export class HeroSectionComponent {
   protected readonly environment = environment;
+  @Input() quickAccessComponent!: any;
 
+  get quickAccessData() {
+    return this.quickAccessComponent?.['data'];
+  }
 }
