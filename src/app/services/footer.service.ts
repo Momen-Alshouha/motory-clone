@@ -27,7 +27,8 @@ export class FooterService {
   
     const apiUrl = APP.BASE_URL + APP.API.HOME.FOOTER;
     this.data = this._http.get(apiUrl, { headers }).pipe(
-      map((response: any) => response['data'])
+      map((response: any) => response['data']),
+      shareReplay()
     );
   }
 
