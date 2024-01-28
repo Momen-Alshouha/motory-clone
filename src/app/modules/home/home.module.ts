@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import {HomeComponent} from "./home.component";
@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactInquiriesComponent } from './newsletter-complaints/newsletter-complaints.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SharedModule} from "../../shared/shared.module";
+import {SvgIconComponent} from "angular-svg-icon";
 
 @NgModule({
   declarations: [
@@ -35,8 +36,10 @@ import {SharedModule} from "../../shared/shared.module";
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
+    SvgIconComponent,
   ],
   providers: [],
   exports: [HomeComponent, VideosComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule { }
