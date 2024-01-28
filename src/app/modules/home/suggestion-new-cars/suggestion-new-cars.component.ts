@@ -12,7 +12,7 @@ export class SuggestionNewCarsComponent {
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
   swiperRef: ElementRef | undefined;
   protected readonly environment = environment;
-
+  @Input() suggestedVehiclesListComponent!: any;
 
   public SuggestionSliderConfig: SwiperOptions = {
     navigation: {
@@ -36,5 +36,13 @@ export class SuggestionNewCarsComponent {
       },
     },
   };
+
+  get suggestedVehiclesData() {
+    return this.suggestedVehiclesListComponent?.['data'];
+  }
+
+  get suggestedVehiclesTitle() {
+    return this.suggestedVehiclesListComponent?.section_title;
+  }
 
 }

@@ -11,8 +11,8 @@
   <div class="container-xxl motory-container">
     <app-featured-makes></app-featured-makes>
   </div>
-  <div class="container-xxl motory-container">
-    <app-suggestion-new-cars></app-suggestion-new-cars>
+  <div class="container-xxl motory-container" *ngIf="(suggestedVehicleList$ | async) as data">
+    <app-suggestion-new-cars [suggestedVehiclesListComponent]="data"></app-suggestion-new-cars>
   </div>
   <div class="container-xxl motory-container" *ngIf="(autoNewsComponent$ | async) as data">
     <app-news [autoNewsComponent]="data"></app-news>
