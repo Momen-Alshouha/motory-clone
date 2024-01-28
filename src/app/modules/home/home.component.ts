@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   public videoData$!: Observable<any>;
   public suggestedVehicleList$!: Observable<any>;
   public suggestedVehicleListData$!: Observable<any>;
+  public quickAccessData$!: Observable<any>;
 
   constructor(
     private _homeApiService: HomeService,
@@ -28,6 +29,6 @@ export class HomeComponent implements OnInit {
     this.videoData$ = this._homeApiService.videoData$;
     this.suggestedVehicleList$ = this._homeApiService.suggestedVehicleListComponent$;
     this.suggestedVehicleListData$ = this._homeApiService.suggestedVehicleListData$;
-
+    this.quickAccessData$ = this._homeApiService.quickAccessComponent$;
   }
 }
